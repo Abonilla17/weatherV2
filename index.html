@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylsheet" href="styles.css">
+  <link href=" https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css" rel="stylesheet">
+</head>
+<body id="body" onload="on();" style="display: none;">
+  <div class="pageloader is-active" id="pageLoaded" style="background-color: #0a0a0a;"><span class="title">Loading... </span></div>
+  <main id="weatherContent">
+  <nav class="navbar is-black is-paddingless" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-3 title">
+       WEATHER
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item">
+          <button class="delete is-mobile" onclick="toggleNotification();" id="delete"></button>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="cityState ml-3">
+  <h3 class="has-text-left is-size-4" id="state">
+    State:
+  </h3>
+  <h3 class="has-text-left is-size-4" id="city">
+    City:
+  </h3>
+</div>
+  <div class="notification is-light has-text-centered" style="margin: 10px;" id="notification">
+    <button class="delete" onclick="toggleNotification();" id="delete"></button>
+  <p id="weatherAlerts"> Alerts:  </p>
+  </div>
+  <div>
+    <h3 class="has-text-centered is-size-3">Current weather </h3>
+    <p id="weatherValidTime" class="has-text-centered"></p>
+  </div>
+  <div class="columns is-mobile is-centered is-vcentered"">
+    <div class="column" style="width: 128px;margin-top: 30px;margin-left: 300px;margin-bottom: 25px;">
+      <img class="image is-128x128" style="margin: 0 auto;" id="weatherImage" alt="Weather Image">
+      <p class="img-with-text has-text-centered"  style="margin: 0 auto;"  id="shortForecast"></p>
+    </div>
+    <div class="column" style=" margin: top 30px;margin-right: 300px;">
+      <p style="display: inline-block;">Temperature:</p>
+      <p id="temperature" style="display: inline-block;"></p> <br>
+      <p id="wiinds" style="display: inline-block;">Winds:</p>
+      <p id="windForecast" style="display: inline-block;"></p> <br>
+      <h3 id="rainChance" style="display: inline-block;"> Chance of rain:</h3> 
+      <p class="inline" id="rainChanceIcon" style="display: none">></p>
+      <i class="fa-solid fa-percent" style="display: none;" id="rainPercent"></i>
+      <br>
+      <h3 style="display: inline-block;">Feels like*:</h3> 
+      <p id="feelsLike" style="display: inline-block;"></p>
+    </div>
+  </div>
+  
+  <footer>
+  <p class="has-text-centered" style="font-size: 15px;" id="feelsLikeCalculation">
+  </footer>
+  </p>
+</main>
+</body>
+<script type="" src="scripts.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/c804f1a805.js" crossorigin="anonymous"></script>
+</html>
