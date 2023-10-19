@@ -4,9 +4,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylsheet" href="styles.css">
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
   <link href=" https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css" rel="stylesheet">
 </head>
 <body id="body" onload="on();" style="display: none;">
+  <script>
+$(document).ready(function() {
+    const weatherImg = document.getElementById("weatherImage");
+    const column2 = document.getElementById("col-2")
+    const colContainer = document.getElementById("cols")
+    $(window).resize(function() {
+        if ($(window).width() < 960) {
+            weatherImg.classList.remove("is-128x128");
+            weatherImg.classList.add("is-64x64");
+            column2.style.marginTop = "0";
+            column2.style.fontSize = "3.5vh";
+        } else {
+            weatherImg.classList.add("is-128x128");
+            weatherImg.classList.remove("is-64x64");
+            column2.style.marginTop = "30px";
+            column2.style.fontSize = "15px";
+        }
+    });
+});
+
+  </script>
   <div class="pageloader is-active" id="pageLoaded" style="background-color: #0a0a0a;"><span class="title">Loading... </span></div>
   <main id="weatherContent">
   <nav class="navbar is-black is-paddingless" role="navigation" aria-label="main navigation">
@@ -39,12 +64,12 @@
     <h3 class="has-text-centered is-size-3">Current weather </h3>
     <p id="weatherValidTime" class="has-text-centered"></p>
   </div>
-  <div class="columns is-mobile is-centered is-vcentered"">
-    <div class="column" style="width: 128px;margin-top: 30px;margin-left: 300px;margin-bottom: 25px;">
-      <img class="image is-128x128" style="margin: 0 auto;" id="weatherImage" alt="Weather Image">
+  <div class="columns is-mobile is-centered is-vcentered" id="cols">
+      <div class="column" style="width: 128px;margin-top: 30px;margin-left: 300px;margin-bottom: 25px;">
+        <img class="image image is-128x128"style="margin: 0 auto;" id="weatherImage" alt="Weather Image">
       <p class="img-with-text has-text-centered"  style="margin: 0 auto;"  id="shortForecast"></p>
     </div>
-    <div class="column" style=" margin: top 30px;margin-right: 300px;">
+    <div class="column" id="col-2" style="margin-right: 300px;">
       <p style="display: inline-block;">Temperature:</p>
       <p id="temperature" style="display: inline-block;"></p> <br>
       <p id="wiinds" style="display: inline-block;">Winds:</p>
@@ -65,9 +90,5 @@
 </main>
 </body>
 <script type="" src="scripts.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/c804f1a805.js" crossorigin="anonymous"></script>
 </html>
